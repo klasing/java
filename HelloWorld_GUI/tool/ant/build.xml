@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project name="HelloWorld_GUI" default="run" basedir="..\..">
+    <description>Compile, deploy and run HelloWorld_GUI project</description>
+
+    <path id="java.cmd">
+        <pathelement path="build;C:\Program Files\Java\jdk1.8.0_112\bin"/>
+    </path>
+    <property name="destin" location="build"/>
+    <property name="jar" location="jar"/>
+
+    <target name="compile">
+        <javac srcdir="src" destdir="${destin}" listfiles="true">
+            <classpath refid="java.cmd"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+      <jar destfile="${jar}/HelloWorld_GUI.jar" basedir="${destin}">
+        <manifest>
+          <attribute name="Main-Class" value="src.HelloWorld_GUI"/>
+        </manifest>
+      </jar>
+    </target>
+
+    <target name="copy.properties" depends="jar">
+        <!--
+        <copy todir="build\src\resource">
+            <fileset dir="src\resource" includes="**\*.properties"/>
+        </copy>
+        -->
+    </target>
+
+    <target name="run" depends="copy.properties">
+        <java classname="src.HelloWorld_GUI">
+            <classpath refid="java.cmd"/>
+        <!-- command line arguments -->
+        <!--<arg line="it IT"/>-->
+        </java>
+    </target>
+</project>
