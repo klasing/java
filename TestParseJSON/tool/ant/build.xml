@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="TestParseJSON" default="run" basedir="..\..">
+    <description>Compile, deploy and run TestParseJSON project</description>
+
+    <path id="java.cmd">
+    	<!-- supply path to java commands and path to JSON library in jar -->
+        <pathelement path="build;C:\Program Files\Java\jdk1.8.0_112\bin;C:\Users\Klasing\MyProgramming\MyJava\Java2017\TestParseJSON\lib\java-json.jar"/>
+    </path>
+    <property name="destin" location="build"/>
+    <property name="jar" location="jar"/>
+
+    <target name="compile">
+        <javac srcdir="src" destdir="${destin}" listfiles="true">
+            <classpath refid="java.cmd"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+      <jar destfile="${jar}/TestParseJSON.jar" basedir="${destin}">
+        <manifest>
+          <attribute name="Main-Class" value="src.TestParseJSON"/>
+        </manifest>
+      </jar>
+    </target>
+
+    <target name="copy.properties" depends="jar">
+        <copy todir="build\src\resource">
+            <fileset dir="src\resource" includes="**\*.properties"/>
+        </copy>
+    </target>
+
+    <target name="run" depends="copy.properties">
+        <java classname="src.TestParseJSON">
+            <classpath refid="java.cmd"/>
+        <!-- command line arguments -->
+        <arg line="nl NL"/>
+        </java>
+    </target>
+</project>
