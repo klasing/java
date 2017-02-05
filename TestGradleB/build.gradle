@@ -1,0 +1,44 @@
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile "joda-time:joda-time:2.2"
+	testCompile "junit:junit:4.12"
+}
+
+// neccessary for running java -jar build\libs\TestGradleB.jar
+// with a different name this command becomes:
+// java -jar build\libs\gs-gradle-0.1.0.jar >>>this command is NO LONGER
+// functioning, because a dependency is added<<<
+jar {
+	//give the jar a different name: gs-gradle-0.1.0.jar
+	baseName = 'gs-gradle'
+	version = '0.1.0'
+    manifest {
+        attributes 'Main-Class': 'hello.HelloWorld'
+    }
+}
+
+// the joda-time-2.2.jar ends up in a zip that lives inder distributions
+// a copy of joda-time-2.2.jar must be in build\libs to run the following command
+
+// make this application runnable with the command:
+// gradle run
+apply plugin: 'application'
+
+mainClassName = 'hello.HelloWorld'
+
+// when you change directory (cd) to: build\classes\main
+// you can run the app with a java command:
+// java hello.HelloWorld
+// but HOLD ON a dependency is added, so the java command becomes slightly different
+
+// the joda-time-2.2.jar ends up in a zip that lives under distributions
+// a copy of joda-time-2.2.jar must be in build\libs to run the following command
+// java -cp .;./../../libs/joda-time-2.2.jar  hello.HelloWorld
