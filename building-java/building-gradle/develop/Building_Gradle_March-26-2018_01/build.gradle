@@ -1,0 +1,66 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile "joda-time:joda-time:2.2"
+
+	testCompile(
+		'org.junit.jupiter:junit-jupiter-api:5.0.1',
+	)
+	testRuntime(
+		'org.junit.jupiter:junit-jupiter-engine:5.0.1',
+		'org.junit.vintage:junit-vintage-engine:4.12.1',
+		'org.junit.platform:junit-platform-launcher:1.0.1',
+		'org.junit.platform:junit-platform-runner:1.0.1'
+	)
+}
+
+jar {
+	baseName = 'gs-gradle'
+	version = '0.1.0'
+}
+
+apply plugin: 'application'
+
+mainClassName = 'hello.HelloWorld'
+
+// running Unit Test with Gradle, see:
+// https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-running-unit-tests-with-gradle/
+//////////////////////////////////////////////////////////////////////////////
+
+//apply plugin: 'java'
+//
+//repositories {
+//	mavenCentral()
+//}
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+//
+//dependencies {
+//	compile "joda-time:joda-time:2.2"
+//	testCompile "junit:junit:4.12"
+//}
+//
+//jar {
+//	baseName = 'gs-gradle'
+//	version = '0.1.0'
+//}
+//
+//apply plugin: 'application'
+//
+//mainClassName = 'hello.HelloWorld'
+
