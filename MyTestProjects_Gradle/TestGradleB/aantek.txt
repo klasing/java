@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 De naam van het project is TestGradleB
                            ===========
 
@@ -70,3 +71,77 @@ H) change directory (cd) naar: build\classes\main
 I) het commando: java -jar build\libs\gs-gradle-0.1.0.jar
    kan NIET gebruikt worden vanwege de afhankelijkheid van: joda-time-2.2.jar
    (wanneer de -jar optie gebruikt wordt, zal de -cp optie genegeerd worden)
+=======
+De naam van het project is TestGradleB
+                           ===========
+
+A) maak een subdirectory
+   src\main\java\hello
+
+B) plaats in de gemaakte subdirectory een java file
+   naam: HelloWorld.java
+   inhoud:
+
+package hello;
+public class HelloWorld {
+    public static void main(String[] args) {
+        LocalTime currentTime = new LocalTime();
+        System.out.println("The current time is: " + currentTime);
+
+        Greeter greeter = new Greeter();
+        System.out.println(greeter.sayHello());
+    }
+}
+
+C) plaats in de gemaakte subdirectory een java file
+   naam: Greeter.java
+   inhoud:
+
+package hello;
+public class Greeter {
+    public String sayHello() {
+        return "Hello world.";
+    }
+}
+
+D) plaats in de root van het project een build file
+   naam: build.gradle
+   inhoud:
+apply plugin: 'java'
+repositories {
+	mavenCentral()
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+dependencies {
+	compile "joda-time:joda-time:2.2"
+	testCompile "junit:junit:4.12"
+}
+jar {
+	//give the jar a different name: gs-gradle-0.1.0.jar
+	baseName = 'gs-gradle'
+	version = '0.1.0'
+    manifest {
+        attributes 'Main-Class': 'hello.HelloWorld'
+    }
+}
+apply plugin: 'application'
+mainClassName = 'hello.HelloWorld'
+
+E) creeer, onder andere, de jar met: gradle build
+
+F) het project heeft een afhankelijkheid van de joda-time-2.2.jar
+   wat zich bevindt in een zip file onder: distributions
+   om het project te runnen met: gradle run
+   moet een copy van de jar geplaatst worden in: build\libs
+   
+G) het project te runnen met het commando: gradle run
+
+H) change directory (cd) naar: build\classes\main
+   het project kan van daaruit ook geëxecuteerd worden met: 
+   java -cp .;./../../libs/joda-time-2.2.jar  hello.HelloWorld
+
+I) het commando: java -jar build\libs\gs-gradle-0.1.0.jar
+   kan NIET gebruikt worden vanwege de afhankelijkheid van: joda-time-2.2.jar
+   (wanneer de -jar optie gebruikt wordt, zal de -cp optie genegeerd worden)
+>>>>>>> 5839fb13e8eecee60acee4bb332b91b2b147bac9

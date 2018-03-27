@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 A) creeer een project
    gradle init --type java-application
 
@@ -25,4 +26,33 @@ G) in build.gradle
       }
   }
 
+=======
+A) creeer een project
+   gradle init --type java-application
+
+B) run het project met een java entry point (main method)
+   gradle -q run
+
+C) run the test
+   gradle test
+
+D) compile, test en jar
+   gradle build
+
+E) plaats MessagesBundle in
+   src/main/resources/MessagesBundle.properties
+   src/main/resources/MessagesBundle_en_US.properties
+   src/main/resources/MessagesBundle_nl_NL.properties
+
+F) laad de MessagesBundle in ResourceBundle
+   messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
+
+G) in build.gradle
+   run {
+      if (project.hasProperty("appArgs")) {
+          args Eval.me(appArgs)
+      }
+  }
+
+>>>>>>> 5839fb13e8eecee60acee4bb332b91b2b147bac9
 H) gradle run -PappArgs="['nl', 'NL']"

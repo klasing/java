@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 De naam van het project is TestGradleJavaAppB
 Dit project is een combinatie van:
 1) TestGradleB, een project met een afhankelijkheid
@@ -10,4 +11,18 @@ A) change directory (cd) naar: build\classes\main
    java -cp .;./../../libs/joda-time-2.2.jar;./../../resources/main/  hello.HelloWorld nl NL
 
 B) het project runnen vanuit de root met:
+=======
+De naam van het project is TestGradleJavaAppB
+Dit project is een combinatie van:
+1) TestGradleB, een project met een afhankelijkheid
+2) TestGradleJavaApp, een project met ResourceBundle
+
+A) change directory (cd) naar: build\classes\main
+   het classpath zal verder uitgebreid moeten worden om de resources
+   te kunnen vinden
+   het project kan van daaruit ook geëxecuteerd worden met: 
+   java -cp .;./../../libs/joda-time-2.2.jar;./../../resources/main/  hello.HelloWorld nl NL
+
+B) het project runnen vanuit de root met:
+>>>>>>> 5839fb13e8eecee60acee4bb332b91b2b147bac9
    gradle run -PappArgs="['nl', 'NL']" 

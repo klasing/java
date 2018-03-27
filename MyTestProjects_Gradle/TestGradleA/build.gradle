@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apply plugin: 'java'
 
 jar {
@@ -8,4 +9,16 @@ jar {
 
 apply plugin: 'application'
 
+=======
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'hello.HelloWorld'
+    }
+}
+
+apply plugin: 'application'
+
+>>>>>>> 5839fb13e8eecee60acee4bb332b91b2b147bac9
 mainClassName = "hello.HelloWorld"

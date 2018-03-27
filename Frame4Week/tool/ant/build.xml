@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <project name="HelloWorld" default="run" basedir="..\..">
     <description>Compile, deploy and run Frame4Week project</description>
@@ -35,4 +36,43 @@
         <arg line="nl NL"/>
         </java>
     </target>
+=======
+<?xml version="1.0"?>
+<project name="HelloWorld" default="run" basedir="..\..">
+    <description>Compile, deploy and run Frame4Week project</description>
+
+    <path id="java.cmd">
+        <pathelement path="build;C:\Program Files\Java\jdk1.8.0_112\bin"/>
+    </path>
+    <property name="destin" location="build"/>
+    <property name="jar" location="jar"/>
+
+    <target name="compile">
+        <javac srcdir="src" destdir="${destin}" listfiles="true">
+            <classpath refid="java.cmd"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+      <jar destfile="${jar}/Frame4Week.jar" basedir="${destin}">
+        <manifest>
+          <attribute name="Main-Class" value="src.Frame4Week"/>
+        </manifest>
+      </jar>
+    </target>
+
+    <target name="copy.properties" depends="jar">
+        <copy todir="build\src\resource">
+            <fileset dir="src\resource" includes="**\*.properties"/>
+        </copy>
+    </target>
+
+    <target name="run" depends="copy.properties">
+        <java classname="src.Frame4Week">
+            <classpath refid="java.cmd"/>
+        <!-- command line arguments -->
+        <arg line="nl NL"/>
+        </java>
+    </target>
+>>>>>>> 5839fb13e8eecee60acee4bb332b91b2b147bac9
 </project>

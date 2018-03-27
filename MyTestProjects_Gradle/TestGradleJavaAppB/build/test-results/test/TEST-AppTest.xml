@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-02-05T10:26:43" hostname="Lappie" time="0.003">
   <properties/>
@@ -5,3 +6,12 @@
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-02-05T10:26:43" hostname="Lappie" time="0.003">
+  <properties/>
+  <testcase name="testAppHasAGreeting" classname="AppTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+>>>>>>> 5839fb13e8eecee60acee4bb332b91b2b147bac9
