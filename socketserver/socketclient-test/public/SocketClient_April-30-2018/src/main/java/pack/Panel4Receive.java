@@ -12,7 +12,15 @@ import javax.swing.JTextField;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Class that holds a panel for received messages to be shown.
+ */
 public class Panel4Receive extends JPanel {
+
+    /**
+     * Constructor
+     * @param control {@link Control} instance
+     */
     public Panel4Receive(final Control control) {
 
         logger = logger.getLogger(Panel4Receive.class);
@@ -36,6 +44,10 @@ public class Panel4Receive extends JPanel {
         setBorder(titledBorder);
     }
 
+    /**
+     * Shows a received message.
+     * @param message to be shown
+     */
     //************************************************************************
     //*                 receiveMessage
     //************************************************************************

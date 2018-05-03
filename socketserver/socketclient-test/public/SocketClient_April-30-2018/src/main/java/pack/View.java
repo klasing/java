@@ -14,7 +14,15 @@ import javax.swing.SwingUtilities;
 
 import org.apache.log4j.Logger;
 
+/**
+ * The application's view logic.
+ */
 public class View extends ComponentAdapter {
+
+    /**
+     * Constructor.
+     * @param control {@link Control} instance
+     */
     public View(final Control control) {
 
         logger = logger.getLogger(View.class);
@@ -29,6 +37,9 @@ public class View extends ComponentAdapter {
 
     }
 
+    /**
+     * Builds and shows the application's GUI.
+     */
     //************************************************************************
     //*                 createAndShowGui
     //************************************************************************
@@ -96,6 +107,10 @@ public class View extends ComponentAdapter {
         frame.getRootPane().setDefaultButton(Panel4Control.jbConnect);
     }
 
+    /**
+     * Send message to {@link Control} instance, when the GUI frame is build and visible.
+     * @param e ComponentEvent, triggered by a ComponentListener
+     */
     //************************************************************************
     //*                 componentShown
     //************************************************************************
@@ -106,6 +121,10 @@ public class View extends ComponentAdapter {
         control.frameIsVisible();
     }
 
+    /**
+     * Returns the frame in which the application is visible.
+     * @return frame the frame in which the application is visible
+     */
     //************************************************************************
     //*                 getFrame
     //************************************************************************

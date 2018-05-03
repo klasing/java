@@ -24,7 +24,7 @@ public class ClientBean {
 
     /**
      * Returns a {@link Client} instance.
-     * return client {@link Client} instance
+     * @return client {@link Client} instance
      */
     //************************************************************************
     //*                 getClient

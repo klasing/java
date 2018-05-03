@@ -2,13 +2,26 @@ package pack;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Object for the client connection data.
+ */
 public class DataObject4Connection {
+
+    /**
+     * Constructor.
+     */
     protected DataObject4Connection() {
 
         logger = logger.getLogger(DataObject4Connection.class);
         logger.debug(LOG_TAG + "<<constructor>> DataObject4Connection()");
     }
 
+    /**
+     * Sets an object element to the {@link DataObject4Connection#aObject} array.
+     * @param object the object element to be set
+     * @param idx the row at wich the object has to be set.
+     * @return dataObject4Connection this {@link DataObject4Connection} instance
+     */
     //************************************************************************
     //*                 setObject
     //************************************************************************
@@ -21,6 +34,12 @@ public class DataObject4Connection {
         return this;
     }
 
+    /**
+     * Gets an object element from the {@link DataObject4Connection#aObject} array.
+     * @param idx the index in the {@link DataObject4Connection#aObject} array
+     * from wich the object has to be returned.
+     * @return object from the {@link DataObject4Connection#aObject} array
+     */
     //************************************************************************
     //*                 getObject
     //************************************************************************
@@ -30,6 +49,12 @@ public class DataObject4Connection {
         return aObject[idx];
     }
 
+    /**
+     * Sets an object element value to the {@link DataObject4Connection#aObject} array.
+     * @param object the object value to be set
+     * @param idx the row at wich the object has to be set.
+     * @return object this object value from a {@link DataObject4Connection} instance
+     */
     //************************************************************************
     //*                 setValue
     //************************************************************************
@@ -40,6 +65,12 @@ public class DataObject4Connection {
         return this;
     }
 
+    /**
+     * Gets a value from the {@link DataObject4Connection#aObject} array.
+     * @param idx the index in the {@link DataObject4Connection#aObject} array
+     * from wich the object value has to be returned.
+     * @return object value from the {@link DataObject4Connection#aObject} array
+     */
     //************************************************************************
     //*                 getValue
     //************************************************************************

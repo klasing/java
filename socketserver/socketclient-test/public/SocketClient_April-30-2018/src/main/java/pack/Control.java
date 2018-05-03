@@ -4,7 +4,14 @@ import javax.swing.JFrame;
 
 import org.apache.log4j.Logger;
 
+/**
+ * The application's business logic.
+ */
 public class Control {
+
+    /**
+     * Constructor
+     */
     public Control() {
 
         logger = logger.getLogger(Control.class);
@@ -18,6 +25,9 @@ public class Control {
 
     }
 
+    /**
+     * Called when GUI frame is build and visible on screen.
+     */
     //************************************************************************
     //*                 frameIsVisible
     //************************************************************************
@@ -26,6 +36,10 @@ public class Control {
         logger.debug(LOG_TAG + ".frameIsVisible()");
     }
 
+    /**
+     * The returns the frame in which the application is visible.
+     * @return the application frame
+     */
     //************************************************************************
     //*                 getFrame
     //************************************************************************
@@ -36,6 +50,11 @@ public class Control {
         return view.getFrame();
     }
 
+    /**
+     * Connects a client to the server.
+     * @param email_address or user name, used by the client
+     * @return connect result from this operation
+     */
     //************************************************************************
     //*                 connect
     //************************************************************************
@@ -46,6 +65,10 @@ public class Control {
         return model.connect(email_address);
     }
 
+    /**
+     * Sets the state the buttons on the GUI have to be in, depending on the connected state.
+     * @param enable determines the state the buttons have to be in
+     */
     //************************************************************************
     //*                 enableSendState
     //************************************************************************
@@ -64,6 +87,10 @@ public class Control {
 
     }
 
+    /**
+     * Conveys a message from the {@link Panel4Send} to the {@link SocketThread}.
+     * @param message the message to be send
+     */
     //************************************************************************
     //*                 sendMessage
     //************************************************************************
@@ -75,6 +102,10 @@ public class Control {
 
     }
 
+    /**
+     * Conveys a message received by the {@link SocketThread} to the {@link Panel4Send}.
+     * @param message the received message
+     */
     //************************************************************************
     //*                 receiveMessage
     //************************************************************************
@@ -105,12 +136,19 @@ public class Control {
         } // eof switch
     }
 
+    /**
+     * Conveys the exit command to {@link Main}.
+     * @param exit_code the exit code for exiting
+     */
     //************************************************************************
     //*                 exit
     //************************************************************************
     protected void exit(final int exit_code) {
 
         logger.debug(LOG_TAG + ".exit()");
+
+        // send message to disconnect
+        sendMessage("@disconnect");
 
         Main.exit(exit_code);
     }

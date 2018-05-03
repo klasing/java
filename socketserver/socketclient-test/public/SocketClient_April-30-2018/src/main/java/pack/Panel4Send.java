@@ -16,9 +16,16 @@ import javax.swing.JTextField;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Panel for sending message to the server.
+ */
 public class Panel4Send extends JPanel implements ActionListener,
     DocumentListener {
 
+    /**
+     * Constructor.
+     * @param control {@link Control} instance
+     */
     public Panel4Send(final Control control) {
 
         logger = logger.getLogger(Panel4Send.class);
@@ -51,6 +58,13 @@ public class Panel4Send extends JPanel implements ActionListener,
         setBorder(titledBorder);
     }
 
+
+    /**
+     * Reacts on button clicks.
+     * Sends a message to the {@link Control} instance, depending on which
+     * item triggered the event.
+     * @param e ActionEvent, triggered by an actionlistener
+     */
     //************************************************************************
     //*                 actionPerformed
     //************************************************************************
@@ -72,6 +86,10 @@ public class Panel4Send extends JPanel implements ActionListener,
 
     }
 
+    /**
+     * Reacts on changes in textfield for message.
+     * @param e DocumentEvent, triggered by a documentlistener
+     */
     //************************************************************************
     //*                 documentListener methods
     //************************************************************************
@@ -93,6 +111,10 @@ public class Panel4Send extends JPanel implements ActionListener,
         // do nothing
     }
 
+    /**
+     * Sets the state the buttons on the GUI have to be in, depending on the connected state.
+     * @param enable determines the state the buttons have to be in
+     */
     //************************************************************************
     //*                 enableSendState
     //************************************************************************

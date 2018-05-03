@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 public class Model {
 
     /**
-     * Constructor
+     * Constructor.
      * @param control {@link Control} instance
      */
     public Model(final Control control) {
@@ -38,6 +38,13 @@ public class Model {
 
     }
 
+    /**
+     * Conveys a message from {@link Client} to {@link Panel4Connection}.
+     * @param client_id to identify a client
+     * @param time_stamp the moment the connection was made
+     * @param email_address the clients email address, or user name
+     * @param remote_address the remote hosts IP address, and port number
+     */
     //************************************************************************
     //*                 newConnection
     //************************************************************************
@@ -51,6 +58,10 @@ public class Model {
 
     }
 
+    /**
+     * Conveys a message from {@link Client} to {@link Panel4Connection}.
+     * @param client_id to identify a client
+     */
     //************************************************************************
     //*                 removeConnection
     //************************************************************************
@@ -63,6 +74,9 @@ public class Model {
 
     }
 
+    /**
+     * Conveys the 'Stop' command from {@link Panel4Control} to {@link Server}.
+     */
     //************************************************************************
     //*                 stop
     //************************************************************************

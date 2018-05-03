@@ -10,7 +10,15 @@ import javax.swing.JPanel;
 import org.apache.log4j.Logger;
 import javax.swing.JScrollPane;
 
+/**
+ * Class that has a table containing the client connection data.
+ */
 public class Panel4Connection extends JPanel {
+
+    /**
+     * Constructor.
+     * @param control {@link Control} instance
+     */
     public Panel4Connection(final Control control) {
         super(new BorderLayout());
 
@@ -35,6 +43,13 @@ public class Panel4Connection extends JPanel {
         setBorder(titledBorder);
     }
 
+    /**
+     * Adds data for a client connection to the {@link Dtm4Connection} data table model.
+     * @param client_id to identify a client
+     * @param time_stamp the moment the connection was made
+     * @param email_address the clients email address, or user name
+     * @param remote_address the remote hosts IP address, and port number
+     */
     //************************************************************************
     //*                 newConnection
     //************************************************************************
@@ -52,6 +67,10 @@ public class Panel4Connection extends JPanel {
         dtm4Connection.addData(dataObject4Connection);
     }
 
+    /**
+     * Removes data for a client connection from the {@link Dtm4Connection} data table model.
+     * @param client_id to identify a client
+     */
     //************************************************************************
     //*                 removeConnection
     //************************************************************************

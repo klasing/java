@@ -17,9 +17,17 @@ import javax.swing.SwingWorker;
 import org.apache.log4j.Logger;
 import org.joda.time.LocalTime;
 
+/**
+ * Holds a background thread to communicate with the server.
+ */
 public class SocketThread extends SwingWorker<List<String>, String>
     implements PropertyChangeListener {
 
+    /**
+     * Constructor.
+     * @param model {@link Model} instance
+     * @param socket that is used
+     */
     public SocketThread(final Model model,
         final Socket socket) {
 
@@ -43,6 +51,11 @@ public class SocketThread extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * The job that runs in the background.
+     * @return list contains the messages received from the client
+     * @throws Exception for whatever reason
+     */
     //************************************************************************
     //*                 doInBackground
     //************************************************************************
@@ -72,6 +85,10 @@ public class SocketThread extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * Processes the intermediate message received from the server.
+     * @param chunks contains a message received from the server
+     */
     //************************************************************************
     //*                 process
     //************************************************************************
@@ -85,6 +102,10 @@ public class SocketThread extends SwingWorker<List<String>, String>
         model.receiveMessage(chunks.get(chunks.size() - 1));
     }
 
+    /**
+     * Called when the {@link SocketThread} is stopped, and the background job has
+     * finished its task.
+     */
     //************************************************************************
     //*                 done
     //************************************************************************
@@ -95,6 +116,11 @@ public class SocketThread extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * State changes of the background thread, indicating the state the
+     * background thread is in.
+     * @param e ProperChangeEvent, triggered by a PropertyChangeListener
+     */
     //************************************************************************
     //*                 propertyChange
     //************************************************************************
@@ -127,6 +153,10 @@ public class SocketThread extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * Sends a message to the server.
+     * @param message to be send
+     */
     //************************************************************************
     //*                 sendMessage
     //************************************************************************
@@ -139,6 +169,9 @@ public class SocketThread extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * Disconnects a client from the server.
+     */
     //************************************************************************
     //*                 disconnect
     //************************************************************************

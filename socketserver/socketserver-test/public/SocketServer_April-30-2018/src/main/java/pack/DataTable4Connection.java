@@ -9,7 +9,15 @@ import javax.swing.table.TableCellRenderer;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Table for connection data, shown in {@link Panel4Connection}.
+ */
 public class DataTable4Connection extends JTable {
+
+    /**
+     * Constructor.
+     * @param dtm4Connection data table model for this table
+     */
     protected DataTable4Connection(final Dtm4Connection dtm4Connection) {
         super(dtm4Connection);
 
@@ -17,6 +25,12 @@ public class DataTable4Connection extends JTable {
         logger.debug(LOG_TAG + "<<constructor>> DataTable4Connection()");
     }
 
+    /**
+     * Defines how the table elements are to be displayed.
+     * @param row current row to be displayed
+     * @param column current column to be displayed
+     * @return tcr table cell renderer containing the display characteristics
+     */
     //************************************************************************
     //*                 getCellRenderer
     //************************************************************************

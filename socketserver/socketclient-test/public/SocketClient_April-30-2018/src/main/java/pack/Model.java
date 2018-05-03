@@ -4,7 +4,15 @@ import java.net.Socket;
 
 import org.apache.log4j.Logger;
 
+/**
+ * The application's model logic.
+ */
 public class Model {
+
+    /**
+     * Constructor.
+     * @param control {@link Control} instance
+     */
     public Model(final Control control) {
 
         logger = logger.getLogger(Model.class);
@@ -14,6 +22,11 @@ public class Model {
 
     }
 
+    /**
+     * Creates a {@link SocketThread} instance, to communicate with the server.
+     * @param email_address or the user_name, used by the client
+     * @return connect the result of this operation
+     */
     //************************************************************************
     //*                 connect
     //************************************************************************
@@ -38,6 +51,10 @@ public class Model {
         return true;
     }
 
+    /**
+     * Conveys a message from the {@link Panel4Send} to the {@link SocketThread}.
+     * @param message the message to be send
+     */
     //************************************************************************
     //*                 sendMessage
     //************************************************************************
@@ -50,6 +67,10 @@ public class Model {
 
     }
 
+    /**
+     * Conveys a message received by the {@link SocketThread} to the {@link Panel4Send}.
+     * @param message the received message
+     */
     //************************************************************************
     //*                 receiveMessage
     //************************************************************************
@@ -60,6 +81,9 @@ public class Model {
         control.receiveMessage(message);
     }
 
+    /**
+     * Disconnects a client from the server.
+     */
     //************************************************************************
     //*                 disconnect
     //************************************************************************

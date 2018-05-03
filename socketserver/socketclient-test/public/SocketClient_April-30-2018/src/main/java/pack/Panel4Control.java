@@ -13,7 +13,15 @@ import javax.swing.JTextField;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Class with the GUI, that controls the client connection state.
+ */
 public class Panel4Control extends JPanel implements ActionListener {
+
+    /**
+     * Constructor
+     * @param control {@link Control} instance
+     */
     public Panel4Control(final Control control) {
 
         logger = logger.getLogger(Panel4Control.class);
@@ -49,6 +57,12 @@ public class Panel4Control extends JPanel implements ActionListener {
         setBorder(titledBorder);
     }
 
+    /**
+     * Reacts on button clicks.
+     * Sends a message to the {@link Control} instance, depending on which
+     * item triggered the event.
+     * @param e ActionEvent, triggered by an actionlistener
+     */
     //************************************************************************
     //*                 actionPerformed
     //************************************************************************

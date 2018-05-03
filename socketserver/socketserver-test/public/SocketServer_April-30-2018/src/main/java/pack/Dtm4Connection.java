@@ -9,7 +9,14 @@ import javax.swing.table.DefaultTableModel;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Table model for the client connection data.
+ */
 public class Dtm4Connection extends DefaultTableModel implements TableModelListener {
+
+    /**
+     * Constructor.
+     */
     protected Dtm4Connection() {
 
         logger = logger.getLogger(Dtm4Connection.class);
@@ -19,6 +26,10 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         addTableModelListener(this);
     }
 
+    /**
+     * Returns the number of rows in the data table model.
+     * @return int number of rows
+     */
     //************************************************************************
     //*                 getRowCount
     //************************************************************************
@@ -29,6 +40,10 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         return listData.size();
     }
 
+    /**
+     * Returns the number of columns in the data table model.
+     * @return int number of columns
+     */
     //************************************************************************
     //*                 getColumnCount
     //************************************************************************
@@ -39,6 +54,10 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         return columnName.length;
     }
 
+    /**
+     * Returns the name for a column in the data table model.
+     * @return String name for the column
+     */
     //************************************************************************
     //*                 getColumnName
     //************************************************************************
@@ -49,6 +68,13 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         return columnName[column];
     }
 
+    /**
+     * Sets an object in an element of the data table model.
+     * Fires an event when the row is updated.
+     * @param object {@link DataObject4Connection} object that is to be set
+     * @param row the row where the {@link DataObject4Connection} object that is to be set
+     * @param column the column where the {@link DataObject4Connection} object that is to be set
+     */
     //************************************************************************
     //*                 setValueAt
     //************************************************************************
@@ -63,6 +89,12 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         fireTableCellUpdated(row, column);
     }
 
+    /**
+     * Delivers an object from an element in the data table model.
+     * @param row the row for the wanted object
+     * @param column the column for the wanted object
+     * @return object the wanted {@link DataObject4Connection} object
+     */
     //************************************************************************
     //*                 getValueAt
     //************************************************************************
@@ -75,6 +107,11 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         return ((DataObject4Connection)object).getValue(column);
     }
 
+    /**
+     * Adds an object with data for a client connection to the data table model.
+     * Fires an event when the row is inserted.
+     * @param dataObject4Connection the object that will be inserted
+     */
     //************************************************************************
     //*                 addData
     //************************************************************************
@@ -88,6 +125,10 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         fireTableRowsInserted(1, 1);
     }
 
+    /**
+     * Removes a row from the data table model. Fires an event when the row is deleted.
+     * @param idx index of the row that is to be deleted
+     */
     //************************************************************************
     //*                 removeData
     //************************************************************************
@@ -101,6 +142,10 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         fireTableRowsDeleted(idx, idx);
     }
 
+    /**
+     * Does nothing
+     * @param e table model event, triggered by a {@link TableModelListener}
+     */
     //************************************************************************
     //*                 tableChanged
     //************************************************************************
@@ -108,6 +153,11 @@ public class Dtm4Connection extends DefaultTableModel implements TableModelListe
         //logger.debug(LOG_TAG + ".tableChanged()");
     }
 
+    /**
+     * Finds a row with data for a client connection.
+     * The client_id is garanteed to be found in the data table model.
+     * @param client_id to identify a client
+     */
     //************************************************************************
     //*                 removeDataOnClientId
     //************************************************************************

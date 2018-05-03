@@ -2,7 +2,15 @@ package pack;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Application's entry and exit.
+ */
 public class Main {
+
+    /**
+     * Application's main entry.
+     * @param args command line argument(s)
+     */
     public static void main(String[] args) {
 
         logger = logger.getLogger(Main.class);
@@ -13,6 +21,10 @@ public class Main {
 
     }
 
+    /**
+     * Application's exit.
+     * @param exit_code the exit code for exiting
+     */
     //************************************************************************
     //*                 exit
     //************************************************************************

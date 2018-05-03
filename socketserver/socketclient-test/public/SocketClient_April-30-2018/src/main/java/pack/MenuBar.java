@@ -9,8 +9,15 @@ import javax.swing.JMenuItem;
 
 import org.apache.log4j.Logger;
 
+/**
+ * The application's menu.
+ */
 public class MenuBar extends JMenuBar implements ActionListener {
 
+    /**
+     * Constructor.
+     * @param control {@link Control} instance
+     */
     protected MenuBar(final Control control) {
 
         logger = logger.getLogger(MenuBar.class);
@@ -29,6 +36,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
     }
 
+    /**
+     * Reacts on button clicks.
+     * Sends a message to the {@link Control} instance, depending on which
+     * item triggered the event.
+     * @param e ActionEvent, triggered by an ActionListener
+     */
     //************************************************************************
     //*                 actionPerformed
     //************************************************************************

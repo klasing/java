@@ -114,7 +114,7 @@ public class Server extends SwingWorker<List<String>, String>
     }
 
     /**
-     * State changes of the background thread, indicating the state the
+     * State changes of the background thread, indicating the state where the
      * background thread is in.
      * @param e ProperChangeEvent, triggered by a PropertyChangeListener
      */
@@ -179,6 +179,12 @@ public class Server extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * Adds a client that connects to the {@link Client} from {@link Server}
+     * to {@link Panel4Connection}.
+     * @param email_address the clients email address, or user name
+     * @param remote_address the remote hosts IP address, and port number
+     */
     //************************************************************************
     //*                 newConnection
     //************************************************************************
@@ -193,6 +199,12 @@ public class Server extends SwingWorker<List<String>, String>
 
     }
 
+    /**
+     * Removes a client that terminated the connection.
+     * Removes the client entry from the {@link Server#listClientBean}.
+     * And removes the client entry from the {@link DataTable4Connection} table.
+     * @param client_id to identify a client
+     */
     //************************************************************************
     //*                 removeConnection
     //************************************************************************
@@ -208,6 +220,10 @@ public class Server extends SwingWorker<List<String>, String>
         model.removeConnection(client_id);
     }
 
+    /**
+     * Distributes a received message to all connectd clients.
+     * @param message the received message
+     */
     //************************************************************************
     //*                 distributeMessage
     //************************************************************************
