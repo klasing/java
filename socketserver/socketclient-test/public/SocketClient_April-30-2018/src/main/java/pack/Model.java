@@ -62,8 +62,11 @@ public class Model {
 
         logger.debug(LOG_TAG + ".sendMessage()");
 
-        // send message to server
-        socketThread.sendMessage(message);
+        // avoid sending message, without a connection
+        // e.g. closing the app, before connecting
+        if (socketThread != null)
+            // send message to server
+            socketThread.sendMessage(message);
 
     }
 

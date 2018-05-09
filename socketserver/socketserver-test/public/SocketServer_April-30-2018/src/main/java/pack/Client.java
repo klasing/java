@@ -128,7 +128,7 @@ public class Client extends SwingWorker<List<String>, String>
 
         // communication message from client, distribute message
         // to all clients
-        server.distributeMessage(emailAddress + "> " + chunks.get(chunks.size() - 1));
+        server.distributeMessage(emailAddress + ">" + chunks.get(chunks.size() - 1));
 
     }
 

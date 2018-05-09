@@ -115,16 +115,16 @@ public class Control {
 
         switch (message) {
             case "@welcome":
-                message = "> Welcome";
+                message = ">Welcome";
                 view.panel4Receive.receiveMessage(message);
                 break;
             case "@goodbye":
-                message = "> Goodbye";
+                message = ">Goodbye";
                 view.panel4Receive.receiveMessage(message);
                 model.disconnect();
                 break;
             case "@server_down":
-                message = "> Server down";
+                message = ">Server down";
                 view.panel4Receive.receiveMessage(message);
                 // adjust button state
                 view.panel4Control.disconnect();
